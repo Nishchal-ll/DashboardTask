@@ -1,11 +1,22 @@
-import React from 'react'
+import { BrowserRouter, Routes, Route } from "react-router-dom";
+import Sidebar from "./components/Sidebar";
+import Home from "./pages/Home";
+import DataPage from "./pages/DataPage";
 
-const App = () => {
+function App() {
   return (
-    <div>
-      <h1 className='font-bold mt-96'>Hello, World!</h1>
-    </div>
-  )
+    <BrowserRouter>
+      <div className="flex">
+        <Sidebar />
+        <main className="flex-1 p-6">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/data" element={<DataPage />} />
+          </Routes>
+        </main>
+      </div>
+    </BrowserRouter>
+  );
 }
 
-export default App
+export default App;
