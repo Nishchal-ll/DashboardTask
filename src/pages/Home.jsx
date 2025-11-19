@@ -1,8 +1,10 @@
 export default function Home() {
   return (
-    <div>
-      <h2 className="text-3xl font-semibold mb-4">Welcome to the Dashboard</h2>
-      <p className="text-gray-600">Use the left sidebar to navigate.</p>
+    <div className="p-6">
+      <h2 className="text-4xl font-bold mb-3">Welcome to the Home Page </h2>
+      <p className="text-gray-700 text-lg">
+        Glad to have you here! Use the sidebar on the left to explore your dashboard.
+      </p>
     </div>
   );
 }
