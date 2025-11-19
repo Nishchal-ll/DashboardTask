@@ -39,8 +39,8 @@ export default function DataPage() {
   };
 
   return (
-    <div>
-      <h2 className="text-3xl font-semibold mb-4">Words Data</h2>
+    <div className="px-4 py-6 sm:px-6 lg:px-8">
+      <h2 className="text-2xl sm:text-3xl font-semibold mb-4">Words Data</h2>
 
       {/* Search by ID */}
       <input
@@ -63,34 +63,57 @@ export default function DataPage() {
 
       {!loading && !error && currentItems.length > 0 && (
         <>
-          <table className="min-w-full bg-white border border-gray-300 shadow rounded-lg">
-            <thead className="bg-gray-100 border-b border-gray-300">
-              <tr>
-                <th className="py-2 px-4 text-left">ID</th>
-                <th className="py-2 px-4 text-left">Headword</th>
-                <th className="py-2 px-4 text-left">Entry Type</th>
-              </tr>
-            </thead>
-
-            <tbody>
-              {currentItems.map((item) => (
-                <tr key={item.id} className="border-b hover:bg-gray-50">
-                  <td className="py-2 px-4">{item.id}</td>
-                  <td className="py-2 px-4">{item.headword}</td>
-                  <td className="py-2 px-4">{item.entrytype}</td>
+          {/* Desktop Table View */}
+          <div className="hidden sm:block overflow-x-auto">
+            <table className="min-w-full bg-white border border-gray-300 shadow rounded-lg">
+              <thead className="bg-gray-100 border-b border-gray-300">
+                <tr>
+                  <th className="py-2 px-4 text-left">ID</th>
+                  <th className="py-2 px-4 text-left">Headword</th>
+                  <th className="py-2 px-4 text-left">Entry Type</th>
                 </tr>
-              ))}
-            </tbody>
-          </table>
+              </thead>
+
+              <tbody>
+                {currentItems.map((item) => (
+                  <tr key={item.id} className="border-b hover:bg-gray-50">
+                    <td className="py-2 px-4">{item.id}</td>
+                    <td className="py-2 px-4">{item.headword}</td>
+                    <td className="py-2 px-4">{item.entrytype}</td>
+                  </tr>
+                ))}
+              </tbody>
+            </table>
+          </div>
+
+          {/* Mobile Card View */}
+          <div className="sm:hidden space-y-3">
+            {currentItems.map((item) => (
+              <div key={item.id} className="bg-white border border-gray-300 shadow rounded-lg p-4">
+                <div className="flex justify-between items-start mb-2">
+                  <span className="text-sm font-semibold text-gray-600">ID:</span>
+                  <span className="text-sm">{item.id}</span>
+                </div>
+                <div className="flex justify-between items-start mb-2">
+                  <span className="text-sm font-semibold text-gray-600">Headword:</span>
+                  <span className="text-sm">{item.headword}</span>
+                </div>
+                <div className="flex justify-between items-start">
+                  <span className="text-sm font-semibold text-gray-600">Entry Type:</span>
+                  <span className="text-sm">{item.entrytype}</span>
+                </div>
+              </div>
+            ))}
+          </div>
 
           {/* Pagination */}
-          <div className="flex items-center justify-center mt-4 gap-2">
+          <div className="flex items-center justify-center mt-4 gap-1 sm:gap-2 flex-wrap">
 
             {/* Left arrow ← (previous 10 pages) */}
             {currentWindowStart > 1 && (
               <button
                 onClick={() => goToPage(currentWindowStart - 1)}
-                className="px-3 py-1 border rounded hover:bg-gray-200"
+                className="px-2 sm:px-3 py-1 border rounded hover:bg-gray-200"
               >
                 ←
               </button>
@@ -103,7 +126,7 @@ export default function DataPage() {
                 <button
                   key={pageNum}
                   onClick={() => goToPage(pageNum)}
-                  className={`px-3 py-1 border rounded ${
+                  className={`px-2 sm:px-3 py-1 border rounded text-sm sm:text-base ${
                     currentPage === pageNum
                       ? "bg-blue-500 text-white"
                       : "hover:bg-gray-200"
@@ -118,7 +141,7 @@ export default function DataPage() {
             {currentWindowEnd < totalPages && (
               <button
                 onClick={() => goToPage(currentWindowEnd + 1)}
-                className="px-3 py-1 border rounded hover:bg-gray-200"
+                className="px-2 sm:px-3 py-1 border rounded hover:bg-gray-200"
               >
                 →
               </button>
