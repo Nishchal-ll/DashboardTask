@@ -5,7 +5,7 @@ export const fetchUsers = createAsyncThunk(
   "api/fetchUsers",
   async (_, { rejectWithValue }) => {
     try {
-      const res = await axios.get("https://jsonplaceholder.typicode.com/users");
+      const res = await axios.get("https://api.ctext.org/getdictionaryheadwords");
       return res.data;
     } catch (error) {
       return rejectWithValue("Failed to fetch users");
