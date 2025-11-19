@@ -1,18 +1,49 @@
-# React + Vite
+# 📊 React Dashboard Application
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A responsive dashboard application built using **React**, **Redux Toolkit**, **TailwindCSS**, and **Vite**.  
+The project includes features such as search, pagination, API integration, error handling, unit tests, end-to-end tests, and deployment support.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🚀 Features
 
-## React Compiler
+- 📁 Dashboard layout with sidebar navigation  
+- 🔍 Search functionality (Search by ID)  
+- 📄 Pagination (18 items per page)  
+- ⚙️ API integration using Redux Toolkit async thunks  
+- 🚫 Error handling for failed API calls  
+- 🧪 Unit tests (Vitest + React Testing Library)  
+- 🧪 End-to-end tests (Cypress)  
+- ☁️ Deployable to Vercel or Netlify  
 
-The React Compiler is enabled on this template. See [this documentation](https://react.dev/learn/react-compiler) for more information.
+---
 
-Note: This will impact Vite dev & build performances.
+## 📦 Tech Stack
 
-## Expanding the ESLint configuration
+- **React + Vite**
+- **Redux Toolkit**
+- **TailwindCSS**
+- **Axios**
+- **React Testing Library**
+- **Vitest**
+- **Cypress**
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+---
+
+# 📥 Installation & Setup
+
+Follow these steps to run the application locally.
+
+---
+
+## 1️⃣ Clone the Repository
+
+```sh
+git clone https://github.com/Nishchal-ll/dashboardtask.git
+cd dashboardtask
+npm install
+npm run dev
+
+## For testing
+
+npm run test
